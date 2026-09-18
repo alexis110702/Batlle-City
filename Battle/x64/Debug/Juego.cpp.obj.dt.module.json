@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "Battle\\x64\\Debug\\Juego.obj",
+            "outputs": [
+                "Battle\\x64\\Debug\\Juego.cpp.obj.dt.module.json",
+                "Battle\\x64\\Debug\\Juego.cpp.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}

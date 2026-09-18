@@ -1,0 +1,252 @@
+  Bomberman.Juego.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly Battle, Version=0.0.*, Culture=Todos los idiomas (todos los países): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class Battle.Constantes: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Fields:
+    Int32 TAM_CELDA IsConst : Public, Static, HasDefault
+    Int32 COLUMNAS IsConst : Public, Static, HasDefault
+    Int32 FILAS IsConst : Public, Static, HasDefault
+    Int32 ANCHO_MAPA IsConst : Public, Static
+    Int32 ALTO_MAPA IsConst : Public, Static
+Class Battle.Celda: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 PixelY 'get ' : 
+    Int32 PixelX 'get ' : 
+    Int32 Columna 'get ' : 
+    Int32 Fila 'get ' : 
+  Methods:
+    get_Fila(): PrivateScope, Public, HideBySig, SpecialName
+    get_Columna(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelX(): PrivateScope, Public, HideBySig, SpecialName
+    get_PixelY(): PrivateScope, Public, HideBySig, SpecialName
+Class Battle.Entidad: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean Activo 'get set' : 
+    Int32 Y    'get set' : 
+    Int32 X    'get set' : 
+  Methods:
+    get_X(): PrivateScope, Public, HideBySig, SpecialName
+    set_X(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Y(): PrivateScope, Public, HideBySig, SpecialName
+    set_Y(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Activo(): PrivateScope, Public, HideBySig, SpecialName
+    set_Activo(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    GetBounds(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Actualizar(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dibujar(Graphics): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Interactuar(Entidad): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class Battle.Bloque: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  :Battle.Entidad
+    Void .ctor(Int32, Int32, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String Tipo 'get ' : 
+  Methods:
+    get_Tipo(): PrivateScope, Public, HideBySig, SpecialName
+    GetBounds(): PrivateScope, Public, Virtual, HideBySig
+    RecibirImpacto(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class Battle.BloqueDestructible: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Battle.Bloque
+    Void .ctor(Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    RecibirImpacto(): PrivateScope, Public, Virtual, HideBySig
+    Dibujar(Graphics): PrivateScope, Public, Virtual, HideBySig
+Class Battle.BloqueIndestructible: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Battle.Bloque
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    RecibirImpacto(): PrivateScope, Public, Virtual, HideBySig
+    Dibujar(Graphics): PrivateScope, Public, Virtual, HideBySig
+Class Battle.Proyectil: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Battle.Entidad
+    Void .ctor(Int32, Int32, Battle.Direccion, Battle.OrigenProyectil, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 TAMANO IsConst : Public, Static, HasDefault
+  Properties:
+    Int32 Dano 'get ' : 
+    Battle.OrigenProyectil Origen 'get ' : 
+    Battle.Direccion Dir 'get ' : 
+  Methods:
+    get_Dir(): PrivateScope, Public, HideBySig, SpecialName
+    get_Origen(): PrivateScope, Public, HideBySig, SpecialName
+    get_Dano(): PrivateScope, Public, HideBySig, SpecialName
+    Actualizar(): PrivateScope, Public, Virtual, HideBySig
+    GetBounds(): PrivateScope, Public, Virtual, HideBySig
+    Dibujar(Graphics): PrivateScope, Public, Virtual, HideBySig
+Class Battle.Tanque: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+  :Battle.Entidad
+    Void .ctor(Int32, Int32, Battle.Direccion, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean TieneEscudo 'get ' : 
+    Int32 VelocidadActual 'get ' : 
+    Int32 Vidas 'get ' : 
+    Battle.Direccion Direc 'get set' : 
+  Methods:
+    get_Direc(): PrivateScope, Public, HideBySig, SpecialName
+    set_Direc(Direccion): PrivateScope, Public, HideBySig, SpecialName
+    get_Vidas(): PrivateScope, Public, HideBySig, SpecialName
+    get_VelocidadActual(): PrivateScope, Public, HideBySig, SpecialName
+    get_TieneEscudo(): PrivateScope, Public, HideBySig, SpecialName
+    GetBounds(): PrivateScope, Public, Virtual, HideBySig
+    Mover(Direccion): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Retroceder(Direccion): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Disparar(OrigenProyectil): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    RecibirImpacto(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    AplicarBonusVelocidad(Int32): PrivateScope, Public, HideBySig
+    AplicarBonusDisparo(Int32): PrivateScope, Public, HideBySig
+    AplicarEscudo(Int32): PrivateScope, Public, HideBySig
+    GanarVida(): PrivateScope, Public, HideBySig
+    Actualizar(): PrivateScope, Public, Virtual, HideBySig
+Class Battle.TanqueJugador: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Battle.Tanque
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ProcesarComandoMovimiento(Direccion): PrivateScope, Public, HideBySig
+    ProcesarComandoDisparo(): PrivateScope, Public, HideBySig
+    Dibujar(Graphics): PrivateScope, Public, Virtual, HideBySig
+Class Battle.TanqueEnemigo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Battle.Tanque
+    Void .ctor(Int32, Int32, Battle.TipoEnemigo): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Battle.TipoEnemigo Tipo 'get ' : 
+  Methods:
+    get_Tipo(): PrivateScope, Public, HideBySig, SpecialName
+    ActualizarComportamiento(): PrivateScope, Public, HideBySig
+    IntentarDisparar(): PrivateScope, Public, HideBySig
+    Dibujar(Graphics): PrivateScope, Public, Virtual, HideBySig
+Class Battle.PowerUp: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Battle.Entidad
+    Void .ctor(Int32, Int32, Battle.TipoPowerUp): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Battle.TipoPowerUp Tipo 'get ' : 
+  Methods:
+    get_Tipo(): PrivateScope, Public, HideBySig, SpecialName
+    GetBounds(): PrivateScope, Public, Virtual, HideBySig
+    Actualizar(): PrivateScope, Public, Virtual, HideBySig
+    AplicarEfecto(TanqueJugador): PrivateScope, Public, HideBySig
+    Dibujar(Graphics): PrivateScope, Public, Virtual, HideBySig
+Class Battle.BaseJuego: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Battle.Entidad
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean Destruida 'get ' : 
+  Methods:
+    get_Destruida(): PrivateScope, Public, HideBySig, SpecialName
+    GetBounds(): PrivateScope, Public, Virtual, HideBySig
+    RecibirImpacto(): PrivateScope, Public, HideBySig
+    Dibujar(Graphics): PrivateScope, Public, Virtual, HideBySig
+Class Battle.EstadoJuego: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Battle.ResultadoJuego Resultado 'get ' : 
+    Int32 Puntuacion 'get ' : 
+    Int32 Nivel 'get set' : 
+  Methods:
+    get_Nivel(): PrivateScope, Public, HideBySig, SpecialName
+    set_Nivel(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Puntuacion(): PrivateScope, Public, HideBySig, SpecialName
+    get_Resultado(): PrivateScope, Public, HideBySig, SpecialName
+    SumarPuntos(Int32): PrivateScope, Public, HideBySig
+    DeclararVictoria(): PrivateScope, Public, HideBySig
+    DeclararDerrota(): PrivateScope, Public, HideBySig
+    JuegoTerminado(): PrivateScope, Public, HideBySig
+Class Battle.Mapa: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 EnemigosTotales 'get ' : 
+    Int32 EnemigosGenerados 'get ' : 
+    Battle.BaseJuego Base 'get ' : 
+    System.Collections.Generic.List`1[Battle.PowerUp] PowerUps 'get ' : 
+    System.Collections.Generic.List`1[Battle.Proyectil] Proyectiles 'get ' : 
+    System.Collections.Generic.List`1[Battle.Bloque] Bloques 'get ' : 
+    System.Collections.Generic.List`1[Battle.TanqueEnemigo] Enemigos 'get ' : 
+    Battle.TanqueJugador Jugador 'get ' : 
+  Methods:
+    get_Jugador(): PrivateScope, Public, HideBySig, SpecialName
+    get_Enemigos(): PrivateScope, Public, HideBySig, SpecialName
+    get_Bloques(): PrivateScope, Public, HideBySig, SpecialName
+    get_Proyectiles(): PrivateScope, Public, HideBySig, SpecialName
+    get_PowerUps(): PrivateScope, Public, HideBySig, SpecialName
+    get_Base(): PrivateScope, Public, HideBySig, SpecialName
+    get_EnemigosGenerados(): PrivateScope, Public, HideBySig, SpecialName
+    get_EnemigosTotales(): PrivateScope, Public, HideBySig, SpecialName
+    InicializarMapa(): PrivateScope, Public, HideBySig
+    DentroDeLimites(Rectangle): PrivateScope, Public, HideBySig
+    ColisionaConBloques(Rectangle): PrivateScope, Public, HideBySig
+    ColisionaConTanques(Rectangle, Object): PrivateScope, Public, HideBySig
+    ColisionaConAlgo(Rectangle, Object): PrivateScope, Public, HideBySig
+    IntentarMover(Tanque, Direccion): PrivateScope, Public, HideBySig
+    ProcesarMovimientoJugador(Direccion): PrivateScope, Public, HideBySig
+    ProcesarDisparoJugador(): PrivateScope, Public, HideBySig
+    GenerarEnemigoSiCorresponde(): PrivateScope, Public, HideBySig
+    GenerarPowerUpSiCorresponde(): PrivateScope, Public, HideBySig
+    LimpiarInactivos(): PrivateScope, Public, HideBySig
+    Actualizar(EstadoJuego): PrivateScope, Public, HideBySig
+    VerificarVictoria(): PrivateScope, Public, HideBySig
+    Dibujar(Graphics): PrivateScope, Public, HideBySig
+Class Battle.Controladora: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Battle.Mapa MapaActual 'get ' : 
+    Battle.EstadoJuego Estado 'get ' : 
+  Methods:
+    get_Estado(): PrivateScope, Public, HideBySig, SpecialName
+    get_MapaActual(): PrivateScope, Public, HideBySig, SpecialName
+    Iniciar(): PrivateScope, Public, HideBySig
+    ActualizarCicloDeJuego(): PrivateScope, Public, HideBySig
+    ProcesarTecla(Keys): PrivateScope, Public, HideBySig
+    Dibujar(Graphics): PrivateScope, Public, HideBySig
+    SubirDeNivel(): PrivateScope, Public, HideBySig
+Struct Battle.Direccion: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Battle.Direccion Arriba = 0 : Public, Static, Literal, HasDefault
+    Battle.Direccion Abajo = 1 : Public, Static, Literal, HasDefault
+    Battle.Direccion Izquierda = 2 : Public, Static, Literal, HasDefault
+    Battle.Direccion Derecha = 3 : Public, Static, Literal, HasDefault
+Struct Battle.TipoPowerUp: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Battle.TipoPowerUp Velocidad = 0 : Public, Static, Literal, HasDefault
+    Battle.TipoPowerUp Blindaje = 1 : Public, Static, Literal, HasDefault
+    Battle.TipoPowerUp PoderDisparo = 2 : Public, Static, Literal, HasDefault
+    Battle.TipoPowerUp VidaExtra = 3 : Public, Static, Literal, HasDefault
+Struct Battle.TipoEnemigo: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Battle.TipoEnemigo Basico = 0 : Public, Static, Literal, HasDefault
+    Battle.TipoEnemigo Rapido = 1 : Public, Static, Literal, HasDefault
+    Battle.TipoEnemigo Blindado = 2 : Public, Static, Literal, HasDefault
+Struct Battle.OrigenProyectil: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Battle.OrigenProyectil Jugador = 0 : Public, Static, Literal, HasDefault
+    Battle.OrigenProyectil Enemigo = 1 : Public, Static, Literal, HasDefault
+Struct Battle.ResultadoJuego: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Battle.ResultadoJuego EnCurso = 0 : Public, Static, Literal, HasDefault
+    Battle.ResultadoJuego Victoria = 1 : Public, Static, Literal, HasDefault
+    Battle.ResultadoJuego Derrota = 2 : Public, Static, Literal, HasDefault
+Class Battle.Juego: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
