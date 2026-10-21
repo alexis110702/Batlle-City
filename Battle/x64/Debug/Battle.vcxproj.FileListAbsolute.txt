@@ -1,3 +1,0 @@
-D:\SIS457_2_2026\battle-city\Battle\x64\Debug\Battle.vcxproj.AssemblyReference.cache
-D:\SIS457_2_2026\battle-city\Battle\x64\Debug\Bomberman.Juego.resources
-D:\SIS457_2_2026\battle-city\Battle\x64\Debug\Battle.vcxproj.GenerateResource.cache
