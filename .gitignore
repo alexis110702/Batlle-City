@@ -1,0 +1,49 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vcxproj.user
+.vscode/
+
+# Resultados de compilacion
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+Win32/
+bin/
+obj/
+[Bb]uild/
+
+# Archivos intermedios de C++
+*.pdb
+*.ilk
+*.obj
+*.o
+*.tlog
+*.log
+*.idb
+*.ipch
+*.pch
+*.sdf
+*.opensdf
+*.aps
+*.lastbuildstate
+*.unsuccessfulbuild
+*.res
+*.exp
+*.lib
+*.dll
+*.exe
+
+# Generados por el juego
+puntuaciones.txt
+
+# Sistema
+Thumbs.db
+Desktop.ini
+.DS_Store
